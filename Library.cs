@@ -19,25 +19,21 @@ class Library
     public void AddBook(Book book)
     {
         Books.Add(book);
-        Console.WriteLine($"{book.Title} added to the library catalog.");
     }
 
     public void RemoveBook(Book book)
     {
         Books.Remove(book);
-        Console.WriteLine($"{book.Title} removed from the library catalog.");
     }
 
     public void AddMediaItem(MediaItem item)
     {
         MediaItems.Add(item);
-        Console.WriteLine($"{item.Title} added to the library catalog.");
     }
 
     public void RemoveMediaItem(MediaItem item)
     {
         MediaItems.Remove(item);
-        Console.WriteLine($"{item.Title} removed from the library catalog.");
     }
 
     public void PrintCatalog()
@@ -45,6 +41,7 @@ class Library
         Console.WriteLine($"Library Name: {Name}");
         Console.WriteLine($"Address: {Address}");
         Console.WriteLine("\nBooks in the Library:");
+        
         foreach (var book in Books)
         {
             Console.WriteLine($"{book.Title} by {book.Author} (ISBN: {book.ISBN}, Year: {book.PublicationYear})");
