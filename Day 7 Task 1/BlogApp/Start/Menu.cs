@@ -1,96 +1,105 @@
 using BlogApp.Data;
 using BlogApp.Models;
 using BlogApp.Manager;
+using System;
 
-namespace BlogApp.Start;
-
-public class Menu
+namespace BlogApp.Start
 {
-    private PostManager _postManager;
-    private CommentManager _commentManager;
-    private Display _display;
-
-    public Menu(BlogDbContext context)
+    public class Menu
     {
-        _postManager = new PostManager(context);
-        _commentManager = new CommentManager(context);
-        _display = new Display(context);
-    }
-    
-    public string GetValidatedInput(string message, Func<string, string?> validator)
-    {
-        Console.WriteLine(message);
-        string? input = Console.ReadLine();
+        private readonly PostManager _postManager;
+        private readonly CommentManager _commentManager;
+        private readonly Display _display;
 
-        while (input == null || validator(input) != null)
+        public Menu(BlogDbContext context)
         {
-            Console.WriteLine(input == null ? "You must input something. Try again." : validator(input));
-            input = Console.ReadLine();
+            _postManager = new PostManager(context);
+            _commentManager = new CommentManager(context);
+            _display = new Display(context);
         }
 
-        return input;
-    }
-    
-    void AddPostFromInput()
-    {
-        string title = GetValidatedInput(
-            "Enter post title",
-            name => name.Length > 2 ? null : "Title longer than 2 characters"
-        );
+        private bool IsValidTitle(string name) => name.Length > 2;
+        private bool IsValidContent(string input) => true; // Add more validation if needed
+        private bool IsValidPostNumber(string input) => int.TryParse(input, out _);
 
-        string content = GetValidatedInput(
-            "Enter post content",
-            input => null
-        );
-
-        _postManager.Create(new Post() { Title = title, Content = content});
-        Console.WriteLine("Post created successfully");
-    }
-    
-    void AddCommentFromInput()
-    {
-        int postId=0;
-        string postNumber = GetValidatedInput(
-            "Enter post number",
-            input => int.TryParse(input, out postId) ? null : "Title longer than 2 characters"
-        );
-
-        string content = GetValidatedInput(
-            "Enter comment text",
-            input => null
-        );
-
-        if (_postManager.GetById(postId) is null)
+        public string GetValidatedInput(string message, Func<string, bool> validator)
         {
-            Console.WriteLine("Post not found");
-            return;
+            Console.WriteLine(message);
+            string input = Console.ReadLine();
+
+            while (string.IsNullOrEmpty(input) || !validator(input))
+            {
+                Console.WriteLine(string.IsNullOrEmpty(input) ? "You must input something. Try again." : "Invalid input. Try again.");
+                input = Console.ReadLine();
+            }
+
+            return input;
         }
 
-        _commentManager.Create(new Comment() { PostId = postId, Text = content });
-        Console.WriteLine("Comment added Successfully");
-    }
-    
-    void PrintCommandList()
-    {
-        Console.WriteLine(""" 
-        List of Commands:
-            ls      :  List All Posts.
-            details :  View details of a post. Type details followed by post number. eg. 'details 2'
-            add     :  Add a post.
-            comment :  Add a comment to a post.
-            del     :  Delete a post. Type del followed by comment number. eg. 'del 1'.
-            del c   :  Delete a comment. Type del c followed by comment number. eg. 'del c 1'.
-            h       :  Help.
-            q       : quit.
-        """);
-    }
-
-    void DeleteComment(string[] command)
-    {
-        int commentId;
-        if (int.TryParse(command[2], out commentId))
+        private void AddPostFromInput()
         {
-            if (_commentManager.GetById(commentId) is null)
+            string title = GetValidatedInput(
+                "Enter post title",
+                IsValidTitle
+            );
+
+            string content = GetValidatedInput(
+                "Enter post content",
+                IsValidContent
+            );
+
+            _postManager.Create(new Post { Title = title, Content = content });
+            Console.WriteLine("Post created successfully");
+        }
+
+        private void AddCommentFromInput()
+        {
+            int postId;
+            string postNumber = GetValidatedInput(
+                "Enter post number",
+                IsValidPostNumber
+            );
+
+            if (!int.TryParse(postNumber, out postId))
+            {
+                Console.WriteLine("Invalid post number");
+                return;
+            }
+
+            string content = GetValidatedInput(
+                "Enter comment text",
+                IsValidContent
+            );
+
+            if (_postManager.GetById(postId) == null)
+            {
+                Console.WriteLine("Post not found");
+                return;
+            }
+
+            _commentManager.Create(new Comment { PostId = postId, Text = content });
+            Console.WriteLine("Comment added successfully");
+        }
+
+
+        private void PrintCommandList()
+        {
+            Console.WriteLine(@"
+Available Commands:
+    list      : List all posts.
+    view      : View details of a post. Usage: view [post number] (e.g., 'view 2')
+    add       : Add a new post.
+    comment   : Add a comment to a post.
+    delete    : Delete a post. Usage: delete [post number] (e.g., 'delete 1').
+    delete c  : Delete a comment. Usage: delete c [comment number] (e.g., 'delete c 1').
+    help      : Display this help menu.
+    quit      : Quit the application.
+");
+        }
+
+        private void DeleteComment(int commentId)
+        {
+            if (_commentManager.GetById(commentId) == null)
             {
                 Console.WriteLine("Comment does not exist");
                 return;
@@ -99,106 +108,104 @@ public class Menu
             _commentManager.Delete(commentId);
             Console.WriteLine("Comment deleted");
         }
-    }
 
-    void DeletePost(string[] command)
-    {
-        int postId;
-        if (int.TryParse(command[1], out postId))
+        private void DeletePost(int postId)
         {
-            if (_postManager.GetById(postId) is null)
+            if (_postManager.GetById(postId) == null)
             {
                 Console.WriteLine("Post not found");
                 return;
             }
-            
-            _postManager.Delete(postId);
-            Console.WriteLine("Post Deleted Successfully");
-            return;
-        }
-        Console.WriteLine("Invalid post number");
-        
-    }
 
-    void CommandHandler(string[] command)
-    {
-        switch (command[0].ToLower())
+            _postManager.Delete(postId);
+            Console.WriteLine("Post deleted successfully");
+        }
+
+        private void CommandHandler(string[] command)
         {
-            case "ls":
-                _display.DisplayPosts();
-                break;
-            case "add":
-                AddPostFromInput();
-                break;
-            case "h":
-                PrintCommandList();
-                break;
-            case "del":
-                if (command.Length < 2)
-                {
-                    Console.WriteLine("Delete arguments needed");
+            switch (command[0].ToLower())
+            {
+                case "list":
+                    _display.DisplayPosts();
                     break;
-                }
-                
-                if (command.Length > 2)
-                {
-                    if (command[1].ToLower() != "c")
+                case "add":
+                    AddPostFromInput();
+                    break;
+                case "help":
+                    PrintCommandList();
+                    break;
+                case "delete":
+                    if (command.Length < 2)
                     {
-                        Console.WriteLine("Invalid command");
+                        Console.WriteLine("Delete arguments needed");
                         break;
                     }
-                    DeleteComment(command);
+
+                    if (command[1].ToLower() == "c" && command.Length >= 3)
+                    {
+                        if (int.TryParse(command[2], out int commentId))
+                        {
+                            DeleteComment(commentId);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid comment number");
+                        }
+                    }
+                    else if (int.TryParse(command[1], out int postId))
+                    {
+                        DeletePost(postId);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid command");
+                    }
                     break;
-                }
-                DeletePost(command);
-                break;
-            
-            case "details":
-                if (command.Length < 2)
-                {
-                    Console.WriteLine("Post number needed");
+                case "view":
+                    if (command.Length < 2)
+                    {
+                        Console.WriteLine("Post number needed");
+                    }
+                    else if (int.TryParse(command[1], out int postIdDetails))
+                    {
+                        _display.DisplayDetails(postIdDetails);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid post number");
+                    }
                     break;
-                }
-                int postId;
-                if (!int.TryParse(command[1], out postId) )
-                {
-                    Console.WriteLine("Invalid position");
-                }
-
-                _display.DisplayDetails(postId);
-                break;
-            case "comment":
-                AddCommentFromInput();
-                break;
-            default:
-                Console.WriteLine("Invalid command");
-                break;
-        }
-        
-    }
-    
-    public void Start()
-    {
-        Console.WriteLine("Welcome To Blog App.");
-        
-        PrintCommandList();
-
-        bool running = true;
-        while (running)
-        {
-            String inputCommand = GetValidatedInput(
-                "\nInput Command (ls, add, del, details, h, q)",
-                input => input.Length >= 1 ? null : "Invalid command"
-            );
-
-            String[] splitInput = inputCommand.Split();
-            if (splitInput[0].ToLower() == "q")
-            {
-                running = false;
+                case "comment":
+                    AddCommentFromInput();
+                    break;
+                default:
+                    Console.WriteLine("Invalid command");
+                    break;
             }
-            else
+        }
+
+        public void Start()
+        {
+            Console.WriteLine("Welcome to the Blog App.");
+            PrintCommandList();
+
+            bool running = true;
+            while (running)
             {
-                CommandHandler(splitInput);
+                string inputCommand = GetValidatedInput(
+                    "\nEnter Command: ",
+                    input => !string.IsNullOrWhiteSpace(input)
+                );
+
+                string[] splitInput = inputCommand.Split();
+                if (splitInput[0].ToLower() == "quit")
+                {
+                    running = false;
+                }
+                else
+                {
+                    CommandHandler(splitInput);
+                }
             }
         }
     }

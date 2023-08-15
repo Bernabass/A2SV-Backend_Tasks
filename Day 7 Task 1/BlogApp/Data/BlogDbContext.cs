@@ -8,12 +8,10 @@ public class BlogDbContext : DbContext
     public DbSet<Post> Posts { get; set; }
     public DbSet <Comment> Comments { get; set; }
 
-
-    public BlogDbContext(DbContextOptions options) : base(options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-
+        optionsBuilder.UseNpgsql(@"Host=localhost;Database=BlogDb;Username=postgres;Password=postgres");
     }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
