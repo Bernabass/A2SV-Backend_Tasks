@@ -19,7 +19,7 @@ namespace BlogApp.Start
         }
 
         private bool IsValidTitle(string name) => name.Length > 2;
-        private bool IsValidContent(string input) => true; // Add more validation if needed
+        private bool IsValidContent(string input) => true;
         private bool IsValidPostNumber(string input) => int.TryParse(input, out _);
 
         public string GetValidatedInput(string message, Func<string, bool> validator)
