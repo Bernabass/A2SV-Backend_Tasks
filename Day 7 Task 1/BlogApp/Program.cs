@@ -2,12 +2,6 @@
 using BlogApp.Start;
 using Microsoft.EntityFrameworkCore;
 
-Console.WriteLine("Connecting to database...");
-
-Console.WriteLine("Connected to database.");
-
-var context = new BlogDbContext();
-
-var menu = new Menu(context);
+var menu = new Menu(new BlogDbContext());
 
 menu.Start();
