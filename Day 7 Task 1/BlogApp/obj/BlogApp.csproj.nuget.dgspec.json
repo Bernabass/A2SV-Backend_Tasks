@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Downloads\\BlogApp\\BlogApp.csproj": {}
+    "C:\\Users\\user\\Desktop\\A2SV-Backend_Tasks\\Day 7 Task 1\\BlogApp\\BlogApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Downloads\\BlogApp\\BlogApp.csproj": {
+    "C:\\Users\\user\\Desktop\\A2SV-Backend_Tasks\\Day 7 Task 1\\BlogApp\\BlogApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Downloads\\BlogApp\\BlogApp.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\A2SV-Backend_Tasks\\Day 7 Task 1\\BlogApp\\BlogApp.csproj",
         "projectName": "BlogApp",
-        "projectPath": "C:\\Users\\user\\Downloads\\BlogApp\\BlogApp.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\A2SV-Backend_Tasks\\Day 7 Task 1\\BlogApp\\BlogApp.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Downloads\\BlogApp\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\A2SV-Backend_Tasks\\Day 7 Task 1\\BlogApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"

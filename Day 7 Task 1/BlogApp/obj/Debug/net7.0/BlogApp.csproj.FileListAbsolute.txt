@@ -68,3 +68,38 @@ C:\Users\user\Downloads\BlogApp\obj\Debug\net7.0\refint\BlogApp.dll
 C:\Users\user\Downloads\BlogApp\obj\Debug\net7.0\BlogApp.pdb
 C:\Users\user\Downloads\BlogApp\obj\Debug\net7.0\BlogApp.genruntimeconfig.cache
 C:\Users\user\Downloads\BlogApp\obj\Debug\net7.0\ref\BlogApp.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\BlogApp.exe
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\BlogApp.deps.json
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\BlogApp.runtimeconfig.json
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\BlogApp.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\BlogApp.pdb
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Humanizer.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Npgsql.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\obj\Debug\net7.0\BlogApp.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\obj\Debug\net7.0\BlogApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\obj\Debug\net7.0\BlogApp.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\obj\Debug\net7.0\BlogApp.AssemblyInfo.cs
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\obj\Debug\net7.0\BlogApp.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\obj\Debug\net7.0\BlogApp.csproj.CopyComplete
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\obj\Debug\net7.0\BlogApp.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\obj\Debug\net7.0\refint\BlogApp.dll
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\obj\Debug\net7.0\BlogApp.pdb
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\obj\Debug\net7.0\BlogApp.genruntimeconfig.cache
+C:\Users\user\Desktop\A2SV-Backend_Tasks\Day 7 Task 1\BlogApp\obj\Debug\net7.0\ref\BlogApp.dll

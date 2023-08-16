@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s3vmGxy5cwuSHAzscCeR6iD8y9ZT87GkcbqCG5bcxbRbs3ssfoifmmyvp3jrDEkQRM7NVtV8qQSFZ7mvXLABsg==",
+  "dgSpecHash": "37Pfw9nci8xyOMqJOgNtaFtRHQ7jTa3AMZu2llYqJb//ppRS1EE7r8fY/f5cVMAqV4HNBZnh2y+/Ofvru7pCZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Downloads\\BlogApp\\BlogApp.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\A2SV-Backend_Tasks\\Day 7 Task 1\\BlogApp\\BlogApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.10\\microsoft.entityframeworkcore.7.0.10.nupkg.sha512",
